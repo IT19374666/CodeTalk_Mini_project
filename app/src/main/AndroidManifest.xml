@@ -12,6 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <activity android:name=".EditTransactions"
+            android:label="Edit Transactions"></activity>
+        <activity android:name=".My_Transactions"
+            android:label="My Transactions"></activity>
+        <activity android:name=".AddTransactions"
+            android:label="Transactions"></activity>
+
         <activity
             android:name=".MyAccount"
             android:label="@string/My_Acount_page"/>
@@ -21,6 +29,7 @@
         <activity
             android:name=".AddAccount"
             android:label="@string/page_add_account" />
+
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -31,6 +40,7 @@
             </intent-filter>
         </activity>
         <activity
+
             android:name=".UpdateEnvelope"
             android:label="@string/Edit_Envelope" />
         <activity
@@ -58,8 +68,8 @@
 
         </receiver>
         <receiver android:name=".ReminderBroadcast"></receiver>
+
     </application>
 
-
-
 </manifest>
+

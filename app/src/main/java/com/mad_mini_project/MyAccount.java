@@ -7,9 +7,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+
+
+
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -25,6 +29,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
 
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -170,7 +175,9 @@ public class MyAccount extends AppCompatActivity {
 
                         return true;
                     case R.id.Transaction:
-                        startActivity(new Intent(getApplicationContext(), AddAccount.class));
+
+                        startActivity(new Intent(getApplicationContext(), My_Transactions.class));
+
                         return true;
                 }
 
