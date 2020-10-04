@@ -50,19 +50,6 @@ public class AccountAdapter extends ArrayAdapter<Account> {
         title.setText(account.getAccName());
         type.setText(account.getAccType());
         content.setText(String.valueOf(account.getBalance()));
-        /*if(account.getAccType() == "Credit card"){
-            imageView.setImageResource(images[0]);
-        }
-        else if(account.getAccType() == "Cash"){
-            imageView.setImageResource(images[1]);
-        }
-
-        else if(account.getAccType() == "Savings"){
-            imageView.setImageResource(images[2]);
-        }
-        else {
-            imageView.setImageResource(images[2]);
-        }*/
 
 
 

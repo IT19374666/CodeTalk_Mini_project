@@ -54,9 +54,6 @@ public class AddAccount extends AppCompatActivity implements AdapterView.OnItemS
         //create Account object
         account = new Account();
 
-
-
-
         //Implement the onclick event for save button
         btnSave.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -66,28 +63,12 @@ public class AddAccount extends AppCompatActivity implements AdapterView.OnItemS
                 try {
                     if(itemPosition == 0){
                         Toast toast =  Toast.makeText(getApplicationContext(), "Please select the account type", Toast.LENGTH_SHORT);
-                        View toastView = toast.getView(); // This'll return the default View of the Toast.
-
-                        /* And now you can get the TextView of the default View of the Toast. */
-                        TextView toastMessage = (TextView) toastView.findViewById(android.R.id.message);
-                        //toastMessage.setTextSize(18);
-                        toastMessage.setGravity(Gravity.CENTER);
-                        //toastView.setBackgroundColor(Color.YELLOW);
-                        toastMessage.setCompoundDrawablePadding(16);
                         toast.show();
-
-                    }
-
-
-                    else if (TextUtils.isEmpty(textAccName.getText().toString())) {
+                    } else if (TextUtils.isEmpty(textAccName.getText().toString())) {
                         Toast.makeText(getApplicationContext(), "Please enter a unique account name", Toast.LENGTH_SHORT).show();
-                    }
-
-                    else if (TextUtils.isEmpty(textAccBalance.getText().toString())) {
+                    } else if (TextUtils.isEmpty(textAccBalance.getText().toString())) {
                         Toast.makeText(getApplicationContext(), "Please enter the account balance", Toast.LENGTH_SHORT).show();
-                    }
-
-                    else{
+                    } else{
                         //Assigning input values to the account object variables
                         account.setAccName( textAccName.getText().toString());
                         account.setAccType(textAccType);
@@ -95,20 +76,14 @@ public class AddAccount extends AppCompatActivity implements AdapterView.OnItemS
 
                         //Insert to the db
                         dbRef.push().setValue(account);
-
                         //Feedback
                         Toast.makeText(getApplicationContext(), "Data saved successfully", Toast.LENGTH_SHORT);
                         Intent intent = new Intent(AddAccount.this, MyAccount.class);
                         startActivity(intent);
-
-
                     }
 
                 } catch(Exception ex){
-
                 }
-
-
             }
         });
 
