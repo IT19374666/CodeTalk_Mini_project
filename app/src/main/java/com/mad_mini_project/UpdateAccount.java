@@ -100,27 +100,14 @@ public class UpdateAccount extends AppCompatActivity implements AdapterView.OnIt
 
                 try {
 
-
-
                     if (TextUtils.isEmpty(editAccountBalance.getText().toString())) {
                         Toast.makeText(getApplicationContext(), "Please enter the account balance", Toast.LENGTH_SHORT).show();
                     } else if (itemPosition == 0){
                         Toast toast =  Toast.makeText(getApplicationContext(), "Please select the account type", Toast.LENGTH_SHORT);
-                        View toastView = toast.getView(); // This'll return the default View of the Toast.
-
-                        /* And now you can get the TextView of the default View of the Toast. */
-                        TextView toastMessage = (TextView) toastView.findViewById(android.R.id.message);
-                        //toastMessage.setTextSize(18);
-                        //toastMessage.setTextColor(Color.RED);
-                        toastMessage.setGravity(Gravity.CENTER);
-                        //toastView.setBackgroundColor(Color.YELLOW);
-                        toastMessage.setCompoundDrawablePadding(16);
                         toast.show();
 
                     } else{
                         //Assigning input values to the account object variables
-
-
                         dbRef.child("accType").setValue(textAccType);
                         dbRef.child("balance").setValue( Double.parseDouble(editAccountBalance.getText().toString()));
                         System.out.println(account);
@@ -129,7 +116,6 @@ public class UpdateAccount extends AppCompatActivity implements AdapterView.OnIt
                         Toast.makeText(getApplicationContext(), "Data saved successfully", Toast.LENGTH_SHORT);
                         Intent intent = new Intent(UpdateAccount.this, MyAccount.class);
                         startActivity(intent);
-
 
                     }
 

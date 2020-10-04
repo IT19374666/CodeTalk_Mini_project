@@ -82,14 +82,11 @@ public class MyAccount extends AppCompatActivity {
                     System.out.println(total);
                     System.out.println("Key"+ key);
 
-
                 }
 
                 AccountAdapter adapter = new AccountAdapter(MyAccount.this,accountList);
                 listView.setAdapter(adapter);
                 totText.setText(String.valueOf(total));
-
-
 
             }
 
@@ -216,8 +213,6 @@ public class MyAccount extends AppCompatActivity {
 
             }
         } );
-
-
     }
 
     public void openAddAcount() {
