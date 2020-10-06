@@ -8,15 +8,15 @@ import java.util.Date;
 
 public class Transactions {
 
-    private String id;//
-    private String name;//
-    private String description;//
-    private Double amount;//
-    private String date;//
+    private String id;
+    private String name;
+    private String description;
+    private Double amount;
+    private String date;
 
-    public Transactions(){//
+    public Transactions(){
 
-    }//
+    }
 
     public Transactions(String name,String description,Double amount,String date){
 

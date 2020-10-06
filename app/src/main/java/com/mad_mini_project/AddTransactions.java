@@ -19,12 +19,11 @@ import java.util.Date;
 
 public class AddTransactions extends AppCompatActivity {
 
-    Button btn;
-    Button btn1;
+    Button btn, btn1;
     Toast toast;
-    EditText txtName, txtDescription, txtAmount, txtDate;//
-    DatabaseReference dbRef;//
-    Transactions tr;//
+    EditText txtName, txtDescription, txtAmount, txtDate;
+    DatabaseReference dbRef;
+    Transactions tr;
 
     private void clearControls() {
         txtName.setText("");
@@ -87,6 +86,7 @@ public class AddTransactions extends AppCompatActivity {
                         toast = Toast.makeText(context, text, duration);
                         toast.setGravity(Gravity.BOTTOM, 0, 0);
                         toast.show();
+                        clearControls();
                         Intent intent = new Intent(AddTransactions.this, My_Transactions.class);
                         startActivity(intent);
 

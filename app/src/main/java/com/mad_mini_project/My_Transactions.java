@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -41,14 +42,11 @@ public class My_Transactions extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my__transactions);
 
-
-
         context = this;
         listView = findViewById(R.id.listView);
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("SetupTransaction");
         ref.addValueEventListener(new ValueEventListener() {
-
 
 
             @Override
@@ -70,11 +68,9 @@ public class My_Transactions extends AppCompatActivity {
             }
         });
 
-        //methna idan
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("SetupBudget");
-
+            DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("SetupTransaction");
 
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -92,21 +88,21 @@ public class My_Transactions extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
 
                         Intent intent = new Intent(context,EditTransactions.class);
-                        intent.putExtra("EnvelopeName", id);
+                        intent.putExtra("TransactionName", id);
                         startActivity(intent);
                     }
                 });
                 builder.setNegativeButton("DELETE", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        //deleteEnvelope();
+                        deleteTransaction();
 
                     }
                 });
                 builder.show();
             }
         });
-                //methant
+
         FloatingActionButton transactionbutton = findViewById(R.id.transactionbutton);
         transactionbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,11 +142,25 @@ public class My_Transactions extends AppCompatActivity {
 
     }
 
+    public void deleteTransaction() {
+        final DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("SetupTransaction");
+        System.out.println(id);
+        ref.addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.hasChild(id)) {
+                    Toast.makeText(getApplicationContext(), "Deleted Successfully", Toast.LENGTH_SHORT).show();
+                    DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("SetupTransaction").child(id);
+                    dbRef.removeValue();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
 }
-
-
-
-
-
-
-
